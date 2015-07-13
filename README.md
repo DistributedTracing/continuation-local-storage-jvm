@@ -1,7 +1,7 @@
 # continuation-local-storage-jvm
 
 This is a common implementation of continuation-local storage for the JVM.
-It is based on Twitter's com.twitter.util.Local, but this is a Java port
+It is based on Twitter's [`com.twitter.util.Local`](https://github.com/twitter/util/blob/master/util-core/src/main/scala/com/twitter/util/Local.scala), but this is a Java port
 without any external dependencies (notably; no dependency on Scala).
 
 The ContinuationLocal can be used for any data that should be persisted in
@@ -11,7 +11,7 @@ implementations.
 ## Usage example
 
 ```java
-import com.github.distributivetracing.ContinuationLocal
+import com.github.distributedtracing.ContinuationLocal;
 
 public final class MyProgram {
     private static final ContinuationLocal<Integer> userId
@@ -32,7 +32,7 @@ public final class MyProgram {
 
 - The value of `com.twitter.util.Local<T>` is of type `scala.Option<T>`,
   where `Some(value)` holds the value, while `None` indicates that the
-  value is absent. In `com.github.distributivetracing.ContinuationLocal<T>`,
+  value is absent. In `com.github.distributedtracing.ContinuationLocal<T>`,
   the value is not an Option, instead being a nullable of type `T`.
 - In `com.twitter.util.Local` the inner storage mechanism is a `ThreadLocal`,
   while in `ContinuationLocal`, it is a `InheritableThreadLocal`. This means
